@@ -1,7 +1,11 @@
 Ext.define('ModernApp.model.UserModel', {
     extend: 'Ext.data.Model',
     fields: [
-        'id', 'name', 'username', 'email', 'address'
-        // Add other fields as needed
-    ]
+        
+        {name: 'Name',   type: 'string'},
+        {name: 'Username', type: 'string'},
+        {name: 'Email', type: 'string'},
+        {name: 'Adress', type: 'string'}
+    ],
+  
 });
