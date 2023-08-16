@@ -1,5 +1,5 @@
-Ext.require('Ext.data.proxy.Rest')
-Ext.require('Ext.data.JsonStore')
+Ext.require("Ext.data.proxy.Rest");
+Ext.require("Ext.data.JsonStore");
 
 Ext.define("ModernApp.store.UserStore", {
   extend: "Ext.data.Store",
@@ -7,10 +7,10 @@ Ext.define("ModernApp.store.UserStore", {
   model: "ModernApp.model.UserModel",
   proxy: {
     type: "rest",
-    url: "https://jsonplaceholder.typicode.com/users", // Update with real server!!
+    url: "users.json", // Update with real server!!
     reader: {
       type: "json",
-      rootProperty: 'data',
+      rootProperty: "",
     },
   },
   autoLoad: true,
