@@ -16,7 +16,7 @@ Ext.define("ModernApp.view.main.UsersTab", {
     {
       xtype: "grid",
       bind: {
-        store: "{users}",
+        store: "userstore",
       },
       columns: [
         { text: "ID", dataIndex: "id" },
