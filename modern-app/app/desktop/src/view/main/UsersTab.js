@@ -1,7 +1,11 @@
+Ext.require("Ext.layout.Fit");
+
 Ext.define("ModernApp.view.main.UsersTab", {
   extend: "Ext.Panel",
   xtype: "userstab",
   title: "Users",
+
+  layout: { type: "fit" },
 
   requires: [
     "ModernApp.store.UserStore",
@@ -23,9 +27,17 @@ Ext.define("ModernApp.view.main.UsersTab", {
         { text: "Name", dataIndex: "name" },
         { text: "Username", dataIndex: "username" },
         { text: "Email", dataIndex: "email" },
-        { text: "Address", dataIndex: "address" },
+        {
+          text: "Address",
+          tpl: "{address.city}",
+          xtype: "templatecolumn",
+        },
         // Add other columns as needed
       ],
+      selectable: {
+        columns: false, // Can select cells and rows, but not columns
+        extensible: true, // Uses the draggable selection extender
+      },
       dockedItems: [
         {
           xtype: "toolbar",
