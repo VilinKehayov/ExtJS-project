@@ -7,7 +7,7 @@ Ext.define("ModernApp.store.UserStore", {
   model: "ModernApp.model.UserModel",
   proxy: {
     type: "rest",
-    url: "users.json", // Update with real server!!
+    url: "https://jsonplaceholder.typicode.com/users", // Update with real server!!
     reader: {
       type: "json",
       rootProperty: "",
