@@ -8,7 +8,7 @@ Ext.define('ModernApp.view.main.PhotosTab', {
         store: {
             type: 'json',
             proxy: {
-                type: 'ajax',
+                type: 'rest',
                 url: 'https://jsonplaceholder.typicode.com/photos',
                 reader: {
                     type: 'json',
