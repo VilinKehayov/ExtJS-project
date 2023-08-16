@@ -3,12 +3,21 @@ Ext.define("ModernApp.view.main.UsersTab", {
   xtype: "userstab",
   title: "Users",
 
-  requires: ["ModernApp.store.UserStore"],
+  requires: [
+    "ModernApp.store.UserStore",
+    "ModernApp.view.main.UsersTabViewModel",
+    "ModernApp.view.main.UsersTabController",
+  ],
+
+  controller: "userstab",
+  viewModel: "userstab",
 
   items: [
     {
       xtype: "grid",
-      stores: "userstore",
+      bind: {
+        store: "{users}",
+      },
       columns: [
         { text: "ID", dataIndex: "id" },
         { text: "Name", dataIndex: "name" },
@@ -16,6 +25,18 @@ Ext.define("ModernApp.view.main.UsersTab", {
         { text: "Email", dataIndex: "email" },
         { text: "Address", dataIndex: "address" },
         // Add other columns as needed
+      ],
+      dockedItems: [
+        {
+          xtype: "toolbar",
+          dock: "top",
+          items: [
+            {
+              text: "Add User",
+              handler: "onAddUserClick",
+            },
+          ],
+        },
       ],
     },
   ],
