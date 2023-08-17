@@ -6,11 +6,10 @@ Ext.define("ModernApp.view.main.UsersTabController", {
     "ModernApp.view.main.UserForm", // Add this line to include UserForm
   ],
 
-  onAddUserClick: function (button) {
+  onAddUserClick: function () {
     var userForm = Ext.create("ModernApp.view.main.UserForm");
-    console.log("userForm created:", userForm);
 
-    // You can optionally set up listeners or other configuration for the form here
+    Ext.Viewport.add(userForm);
 
     userForm.show();
   },

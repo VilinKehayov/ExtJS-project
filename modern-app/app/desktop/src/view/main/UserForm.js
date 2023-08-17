@@ -2,7 +2,7 @@ Ext.define('ModernApp.view.main.UserForm', {
     extend: 'Ext.form.Panel',
     xtype: 'userform',
     
-    title: 'Add User',
+    title: 'Add new user',
     floating: true,
     centered: true,
     modal: true,
