@@ -2,10 +2,17 @@ Ext.define("ModernApp.view.main.UsersTabController", {
   extend: "Ext.app.ViewController",
   alias: "controller.userstab",
 
-  onAddUserClick: function () {
-    var view = this.getView(),
-      userForm = Ext.create("ModernApp.view.main.UserForm");
-      userForm.showBy(view.down("toolbar[dock=top] > button[text=Add User]"));
+  requires: [
+    "ModernApp.view.main.UserForm", // Add this line to include UserForm
+  ],
+
+  onAddUserClick: function (button) {
+    var userForm = Ext.create("ModernApp.view.main.UserForm");
+    console.log("userForm created:", userForm);
+
+    // You can optionally set up listeners or other configuration for the form here
+
+    userForm.show();
   },
 
   onSubmitUserClick: function () {
