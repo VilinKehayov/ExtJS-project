@@ -1,4 +1,5 @@
 Ext.require("Ext.layout.Fit");
+Ext.require("Ext.grid.cell.Widget");
 
 Ext.define("ModernApp.view.main.UsersTab", {
   extend: "Ext.Panel",
@@ -27,10 +28,27 @@ Ext.define("ModernApp.view.main.UsersTab", {
         { text: "Name", dataIndex: "name" },
         { text: "Username", dataIndex: "username" },
         { text: "Email", dataIndex: "email" },
+        { text: "Address", tpl: "{address.city}", xtype: "templatecolumn" },
+        { text: "Actions" },
         {
-          text: "Address",
-          tpl: "{address.city}",
-          xtype: "templatecolumn",
+          text: "Add User ",
+          cell: {
+            xtype: "widgetcell",
+            viewModel: true,
+            align: "center",
+            widget: {
+              xtype: "button",
+              text: "+",
+              width: "100%",
+              handler: "onAddUserClick",
+              items: [
+                {
+                  xtype: "button",
+                  text: "+",
+                },
+              ],
+            },
+          },
         },
         // Add other columns as needed
       ],
@@ -38,18 +56,6 @@ Ext.define("ModernApp.view.main.UsersTab", {
         columns: false, // Can select cells and rows, but not columns
         extensible: true, // Uses the draggable selection extender
       },
-      dockedItems: [
-        {
-          xtype: "toolbar",
-          dock: "top",
-          items: [
-            {
-              text: "Add User",
-              handler: "onAddUserClick",
-            },
-          ],
-        },
-      ],
     },
   ],
 });
