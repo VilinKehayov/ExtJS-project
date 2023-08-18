@@ -29,7 +29,28 @@ Ext.define("ModernApp.view.main.UsersTab", {
         { text: "Username", dataIndex: "username" },
         { text: "Email", dataIndex: "email" },
         { text: "Address", tpl: "{address.city}", xtype: "templatecolumn" },
-        { text: "Actions" },
+        {
+          text: "Actions",
+          cell: {
+            xtype: "widgetcell",
+            viewModel: true,
+            align: "center",
+            widget: {
+              xtype: "button",
+              iconCls: "x-fa fa-home", // Icon for the menu button
+              menu: [
+                {
+                  text: "Edit",
+                  handler: "onEditUserClick",
+                },
+                {
+                  text: "Delete",
+                  handler: "onDeleteUserClick",
+                },
+              ],
+            },
+          },
+        },
         {
           text: "Add User ",
           cell: {
@@ -38,7 +59,7 @@ Ext.define("ModernApp.view.main.UsersTab", {
             align: "center",
             widget: {
               xtype: "button",
-              text: "+",
+              iconCls: 'x-fa fa-plus',
               width: "100%",
               handler: "onAddUserClick",
               items: [
