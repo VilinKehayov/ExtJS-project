@@ -13,6 +13,14 @@ Ext.define("ModernApp.view.main.UsersTabController", {
 
     userForm.show();
   },
+  onEditUserClick: function (button) {
+    var userForm = Ext.create("ModernApp.view.main.UserForm");
+
+    Ext.Viewport.add(userForm);
+
+    userForm.show();
+
+  },
 
   onSubmitUserClick: function () {
     var me = this,
