@@ -13,13 +13,36 @@ Ext.define("ModernApp.view.main.UsersTabController", {
 
     userForm.show();
   },
+
   onEditUserClick: function (button) {
-    var userForm = Ext.create("ModernApp.view.main.UserForm");
+    var userDialog = Ext.create("ModernApp.view.main.UserDialog");
+    userDialog.show();
+  },
 
-    Ext.Viewport.add(userForm);
+  onDeleteUserClick: function (button) {
+    var deleteUserDialog = Ext.create("ModernApp.view.main.DeleteUserDialog");
+    deleteUserDialog.show();
+  },
 
-    userForm.show();
+  onConfirmDelete: function () {
+    var me = this,
+      usersTab = me.getView(),
+      deleteDialog = Ext.create("ModernApp.view.main.DeleteUserDialog", {
+        // Optional: Pass any necessary data to the dialog
+      });
 
+    usersTab.add(deleteDialog);
+    deleteDialog.show();
+  },
+
+  onCancelDelete: function () {
+    var me = this,
+      usersTab = me.getView(),
+      deleteDialog = usersTab.down("deleteuserdialog");
+
+    if (deleteDialog) {
+      deleteDialog.destroy();
+    }
   },
 
   onSubmitUserClick: function () {
