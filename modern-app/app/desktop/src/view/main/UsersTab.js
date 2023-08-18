@@ -47,10 +47,12 @@ Ext.define("ModernApp.view.main.UsersTab", {
               menu: [
                 {
                   text: "Edit",
+                  iconCls: 'x-fa fa-edit',
                   handler: "onEditUserClick",
                 },
                 {
                   text: "Delete",
+                  iconCls: 'x-fa fa-trash',
                   handler: "onDeleteUserClick",
                 },
               ],
