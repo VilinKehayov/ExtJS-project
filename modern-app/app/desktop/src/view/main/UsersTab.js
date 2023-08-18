@@ -24,13 +24,19 @@ Ext.define("ModernApp.view.main.UsersTab", {
         store: "{users}",
       },
       columns: [
-        { text: "ID", dataIndex: "id" },
-        { text: "Name", dataIndex: "name" },
-        { text: "Username", dataIndex: "username" },
-        { text: "Email", dataIndex: "email" },
-        { text: "Address", tpl: "{address.city}", xtype: "templatecolumn" },
+        { text: "ID", dataIndex: "id", flex: 1 },
+        { text: "Name", dataIndex: "name", flex: 1 },
+        { text: "Username", dataIndex: "username", flex: 1 },
+        { text: "Email", dataIndex: "email", flex: 1 },
+        {
+          text: "Address",
+          tpl: "{address.city}",
+          xtype: "templatecolumn",
+          flex: 1,
+        },
         {
           text: "Actions",
+          flex: 1,
           cell: {
             xtype: "widgetcell",
             viewModel: true,
@@ -53,13 +59,14 @@ Ext.define("ModernApp.view.main.UsersTab", {
         },
         {
           text: "Add User ",
+          flex: 1,
           cell: {
             xtype: "widgetcell",
             viewModel: true,
             align: "center",
             widget: {
               xtype: "button",
-              iconCls: 'x-fa fa-plus',
+              iconCls: "x-fa fa-plus",
               width: "100%",
               handler: "onAddUserClick",
               items: [
@@ -74,7 +81,7 @@ Ext.define("ModernApp.view.main.UsersTab", {
         // Add other columns as needed
       ],
       selectable: {
-        columns: false, // Can select cells and rows, but not columns
+        columns: true, // Can select cells and rows, but not columns
         extensible: true, // Uses the draggable selection extender
       },
     },
