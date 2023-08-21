@@ -35,16 +35,6 @@ Ext.define("ModernApp.view.main.UsersTabController", {
     deleteDialog.show();
   },
 
-  onCancelDelete: function () {
-    var me = this,
-      usersTab = me.getView(),
-      deleteDialog = usersTab.down("deleteuserdialog");
-
-    if (deleteDialog) {
-      deleteDialog.destroy();
-    }
-  },
-
   onSubmitUserClick: function () {
     var me = this,
       form = me.lookupReference("userform");
