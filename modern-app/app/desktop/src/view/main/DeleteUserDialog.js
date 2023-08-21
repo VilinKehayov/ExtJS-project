@@ -17,8 +17,16 @@ Ext.define("ModernApp.view.main.DeleteUserDialog", {
     },
   ],
 
-  buttons: {
-    yes: "onConfirmDelete",
-    no: "onCancelDelete",
-  },
+  buttons: [
+    {
+        text: 'Yes',
+        handler: 'onConfirmDelete'
+    },
+    {
+        text: 'No',
+        handler: function (btn) {
+            btn.up('deleteuserdialog').destroy();
+        }
+    }
+]
 });
