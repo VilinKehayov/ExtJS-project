@@ -2,6 +2,9 @@ Ext.define("ModernApp.view.main.DeleteUserDialog", {
   extend: "Ext.Dialog",
   xtype: "deleteuserdialog",
 
+  controller: "userstab",
+  viewModel: "userstab",
+
   title: "Delete User",
   closable: true,
   defaultFocus: "button[text=Yes]",

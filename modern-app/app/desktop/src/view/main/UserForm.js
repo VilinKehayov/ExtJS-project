@@ -2,6 +2,9 @@ Ext.define("ModernApp.view.main.UserForm", {
   extend: "Ext.form.Panel",
   xtype: "userform",
 
+  controller: "userstab",
+  viewModel: "userstab",
+
   title: "Fill up the form",
   floating: true,
   centered: true,
@@ -40,7 +43,7 @@ Ext.define("ModernApp.view.main.UserForm", {
     {
       text: "Cancel",
       handler: function (btn) {
-        btn.up("userdialog").destroy(); // "userform close?"
+        btn.up("userform").destroy(); // "userform close?"
       },
     },
   ],
