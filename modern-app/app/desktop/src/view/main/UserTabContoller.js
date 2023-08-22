@@ -4,6 +4,8 @@ Ext.define("ModernApp.view.main.UsersTabController", {
 
   requires: [
     "ModernApp.view.main.UserForm", // Add this line to include UserForm
+    "ModernApp.view.main.UserDialog",
+    "ModernApp.view.main.DeleteUserDialog"
   ],
 
   onAddUserClick: function () {
@@ -25,36 +27,49 @@ Ext.define("ModernApp.view.main.UsersTabController", {
   },
 
   onConfirmDelete: function () {
-    var me = this,
-      usersTab = me.getView(),
-      deleteDialog = Ext.create("ModernApp.view.main.DeleteUserDialog", {
-        // Optional: Pass any necessary data to the dialog
-      });
+    console.log("User deleted");
+    // var me = this,
+    //   usersTab = me.getView(),
+    //   deleteDialog = Ext.create("ModernApp.view.main.DeleteUserDialog", {
+    //     // Optional: Pass any necessary data to the dialog
+    //   });
 
-    usersTab.add(deleteDialog);
-    deleteDialog.show();
+    // usersTab.add(deleteDialog);
+    // deleteDialog.show();
   },
 
   onSubmitUserClick: function () {
-    var me = this,
-      form = me.lookupReference("userform");
+    console.log("Created new user");
+    // var me = this,
+    //   form = me.lookupReference("userform");
 
-    if (form.isValid()) {
-      var values = form.getValues(),
-        usersStore = me.getViewModel().getStore("users");
+    // if (form.isValid()) {
+    //   var values = form.getValues(),
+    //     usersStore = me.getViewModel().getStore("users");
 
-      usersStore.add(values);
+    //   usersStore.add(values);
 
-      // Save data to server (POST request)
-      usersStore.sync({
-        success: function () {
-          Ext.toast("User added successfully", "Success");
-          form.destroy();
-        },
-        failure: function () {
-          Ext.toast("Failed to add user", "Error");
-        },
-      });
-    }
+    //   // Save data to server (POST request)
+    //   usersStore.sync({
+    //     success: function () {
+    //       Ext.toast("User added successfully", "Success");
+    //       form.destroy();
+    //     },
+    //     failure: function () {
+    //       Ext.toast("Failed to add user", "Error");
+    //     },
+    //   });
+    // }
+  },
+
+  onBeforeShow: function(dialog) {
+
+    console.log("Prefilled the form");
+    // var userForm = dialog.down('userform'); // Get the reference to the userform
+    // var selectedRecord = this.getSelectedRecord(); // Implement this method to get the selected record
+    
+    // if (userForm && selectedRecord) {
+    //   userForm.setData(selectedRecord.getData()); // Pre-fill the form with the selected record's data
+    // }
   },
 });
