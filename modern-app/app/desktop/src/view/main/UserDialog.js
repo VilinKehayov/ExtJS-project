@@ -2,6 +2,9 @@ Ext.define("ModernApp.view.main.UserDialog", {
   extend: "Ext.Dialog",
   xtype: "userdialog",
 
+  controller: "userstab",
+  viewModel: "userstab",
+
   title: "Edit User",
   closable: true,
   defaultFocus: "userform button[text=Submit]",
@@ -14,4 +17,8 @@ Ext.define("ModernApp.view.main.UserDialog", {
       xtype: "userform",
     },
   ],
+
+  listeners: {
+    beforeshow: "onBeforeShow",
+  },
 });
