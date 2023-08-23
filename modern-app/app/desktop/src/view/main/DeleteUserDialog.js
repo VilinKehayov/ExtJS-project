@@ -2,6 +2,7 @@ Ext.define("ModernApp.view.main.DeleteUserDialog", {
   extend: "Ext.Dialog",
   xtype: "deleteuserdialog",
 
+
   controller: "userstab",
   viewModel: "userstab",
 
@@ -23,7 +24,11 @@ Ext.define("ModernApp.view.main.DeleteUserDialog", {
   buttons: [
     {
         text: 'Yes',
-        handler: 'onConfirmDelete'
+        handler: function (btn) {
+          const deleteUserDialog = btn.up("deleteuserdialog");
+          deleteUserDialog.fireEvent("onConfirmDelete"); // Fire the custom event
+          deleteUserDialog.destroy();
+        },
     },
     {
         text: 'No',
