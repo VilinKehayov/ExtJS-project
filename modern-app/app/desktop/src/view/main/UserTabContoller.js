@@ -6,7 +6,8 @@ Ext.define("ModernApp.view.main.UsersTabController", {
     "ModernApp.view.main.UserForm", // Add this line to include UserForm
     "ModernApp.view.main.UserDialog",
     "ModernApp.view.main.DeleteUserDialog",
-    "ModernApp.model.UserModel"
+    "ModernApp.model.UserModel",
+    "ModernApp.store.UserStore",
   ],
 
   onAddUserClick: function () {
@@ -25,11 +26,23 @@ Ext.define("ModernApp.view.main.UsersTabController", {
 
   onDeleteUserClick: function (button) {
     const deleteUserDialog = Ext.create("ModernApp.view.main.DeleteUserDialog");
+    deleteUserDialog.on("onConfirmDelete", this.onConfirmDelete, this); // Listen for the event
     deleteUserDialog.show();
   },
 
-  onConfirmDelete: function () {
-    console.log("User deleted");
+  onConfirmDelete: function (btn) {
+    const grid = this.getView().down("grid");
+
+    if (grid) {
+      const store = grid.getStore();
+      if (store) {
+        store.removeAll();
+      } else {
+        console.error("Grid store not found.");
+      }
+    } else {
+      console.error("Grid component not found.");
+    }
   },
 
   onSubmitUserClick: function () {
