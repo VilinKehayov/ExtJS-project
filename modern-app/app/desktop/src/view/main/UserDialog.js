@@ -18,7 +18,7 @@ Ext.define("ModernApp.view.main.UserDialog", {
     },
   ],
 
-  listeners: {
-    beforeshow: "onBeforeShow",
-  },
+  // listeners: {
+  //   beforeshow: "onBeforeShow",
+  // },
 });
