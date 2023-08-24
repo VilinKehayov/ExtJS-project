@@ -17,21 +17,33 @@ Ext.define("ModernApp.view.main.UserForm", {
       xtype: "textfield",
       name: "name",
       label: "Name",
+      bind: {
+        value: "{record.name}" // Bind to the name property of the ViewModel's record
+      }
     },
     {
       xtype: "textfield",
       name: "username",
       label: "Username",
+      bind: {
+        value: "{record.username}" // Bind to the name property of the ViewModel's record
+      }
     },
     {
       xtype: "textfield",
       name: "email",
       label: "Email",
+      bind: {
+        value: "{record.email}" // Bind to the name property of the ViewModel's record
+      }
     },
     {
       xtype: "textfield",
       name: "address",
       label: "Address",
+      bind: {
+        value: "{record.address.city}" // Bind to the name property of the ViewModel's record
+      }
     },
   ],
 
