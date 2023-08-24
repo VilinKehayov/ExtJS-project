@@ -14,12 +14,12 @@ Ext.define("ModernApp.view.main.DeleteUserDialog", {
   maxWidth: 100,
   html: "Are you sure you want to delete this user?",
 
-  items: [
-    {
-      xtype: "dialog",
-      margin: "0 0 20 0",
-    },
-  ],
+  // items: [
+  //   {
+  //     xtype: "dialog",
+  //     margin: "0 0 20 0",
+  //   },
+  // ],
 
   buttons: [
     {
