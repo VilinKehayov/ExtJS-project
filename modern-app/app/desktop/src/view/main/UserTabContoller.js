@@ -59,13 +59,13 @@ Ext.define("ModernApp.view.main.UsersTabController", {
     deleteUserDialog.show();
   },
 
-  onRecordDelete: function (record) {
+  onRecordDelete: function () {
     const grid = this.getView().down("grid"),
       store = grid.getStore();
 
     if (store) {
-      store.remove(record);
-      console.log("Removed User");
+      console.log("The User was deleted!");
+      store.load(); // Reload the store to reflect changes
     } else {
       console.error("Record store not found.");
     }
