@@ -25,23 +25,34 @@ Ext.define("ModernApp.view.main.UsersTabController", {
   },
 
   onDeleteUserClick: function (button) {
-    const deleteUserDialog = Ext.create("ModernApp.view.main.DeleteUserDialog");
-    deleteUserDialog.on("onConfirmDelete", this.onConfirmDelete, this); // Listen for the event
+    const grid = this.getView().down("grid");
+
+    // Find the clicked button's cell
+    const cell = button.up("widgetcell");
+
+    // Extract the record from the cell
+    const record = cell.getRecord();
+
+    // Create and show the DeleteUserDialog with the record
+    const deleteUserDialog = Ext.create(
+      "ModernApp.view.main.DeleteUserDialog",
+      {
+        record: record, // Pass the record to the dialog
+      }
+    );
+
     deleteUserDialog.show();
   },
 
-  onConfirmDelete: function (btn) {
-    const grid = this.getView().down("grid");
+  onRecordDelete: function (record) {
+    const grid = this.getView().down("grid"),
+      store = grid.getStore();
 
-    if (grid) {
-      const store = grid.getStore();
-      if (store) {
-        store.removeAll();
-      } else {
-        console.error("Grid store not found.");
-      }
+    if (store) {
+      store.remove(record);
+      console.log("Removed User");
     } else {
-      console.error("Grid component not found.");
+      console.error("Record store not found.");
     }
   },
 
@@ -62,6 +73,4 @@ Ext.define("ModernApp.view.main.UsersTabController", {
     }
   },
 
-  //   onBeforeShow: function () {
-  //   },
 });
