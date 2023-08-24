@@ -2,7 +2,6 @@ Ext.define("ModernApp.view.main.PhotosTab", {
   extend: "Ext.Panel",
   xtype: "photostab",
   title: "Photos",
- 
 
   items: [
     {
