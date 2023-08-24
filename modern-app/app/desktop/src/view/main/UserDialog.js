@@ -5,7 +5,7 @@ Ext.define("ModernApp.view.main.UserDialog", {
   controller: "userstab",
   viewModel: "userstab",
 
-  title: "Edit User",
+  title: "",
   closable: true,
   defaultFocus: "userform button[text=Submit]",
   bodyPadding: 250,

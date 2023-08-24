@@ -11,12 +11,16 @@ Ext.define("ModernApp.view.main.UsersTabController", {
   ],
 
   onAddUserClick: function () {
-    const userDialog = Ext.create("ModernApp.view.main.UserDialog");
+    const userDialog = Ext.create("ModernApp.view.main.UserDialog", {
+      title: "Create a new user", // Set the title for creating a new user
+    });
     userDialog.show();
   },
 
   onEditUserClick: function (button, context) {
-    const userDialog = Ext.create("ModernApp.view.main.UserDialog");
+    const userDialog = Ext.create("ModernApp.view.main.UserDialog",{
+      title: "Edit User", // Set the title for creating a new user
+    });
     const form = userDialog.down("userform");
     userDialog.getViewModel().set("UserDialog", true);
     form.setRecord(context.record);
@@ -72,5 +76,4 @@ Ext.define("ModernApp.view.main.UsersTabController", {
       });
     }
   },
-
 });
