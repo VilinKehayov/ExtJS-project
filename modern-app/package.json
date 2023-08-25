@@ -7,15 +7,18 @@
     "type": "git",
     "url": "https://github.com/"
   },
-  "keywords": ["Ext","JS","Sencha","HTML5"],
+  "keywords": [
+    "Ext",
+    "JS",
+    "Sencha",
+    "HTML5"
+  ],
   "author": "Sencha, Inc.",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/"
   },
   "homepage": "http://www.sencha.com",
-
-
   "scripts": {
     "start": "npm run dev",
     "clean": "rimraf build",
@@ -23,9 +26,7 @@
     "build": "npm run clean && cross-env webpack --env profile=desktop --env environment=production --env treeshake=yes",
     "build:testing": "npm run clean && cross-env webpack --env profile=desktop --env treeshake=yes --env cmdopts=--testing"
   },
-
   "dependencies": {
-    
     "@sencha/ext-modern": "~7.7.0",
     "@sencha/ext-modern-theme-material": "~7.7.0",
     "@sencha/ext": "~7.7.0"
