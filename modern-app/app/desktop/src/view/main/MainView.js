@@ -18,18 +18,18 @@
 //     ]
 // });
 
-Ext.define("ModernApp.view.main.MainView", {
-  extend: "Ext.tab.Panel",
-  xtype: "app-main",
+Ext.define("ModernApp.view.main.MainView", { //TODO You can use 4 spaces tabs for every file for readability :)
+    extend: "Ext.tab.Panel",
+    xtype: "app-main",
 
-  requires: ["ModernApp.view.main.UsersTab", "ModernApp.view.main.PhotosTab"],
+    requires: ["ModernApp.view.main.UsersTab", "ModernApp.view.main.PhotosTab"],
 
-  items: [
-    {
-      xtype: "userstab",
-    },
-    {
-      xtype: "photostab",
-    },
-  ],
+    items: [
+        {
+            xtype: "userstab",
+        },
+        {
+            xtype: "photostab",
+        },
+    ],
 });
