@@ -1,12 +1,12 @@
-Ext.define('ModernApp.view.main.UsersTabViewModel', {
-    extend: 'Ext.app.ViewModel',
-    alias: 'viewmodel.userstab',
+Ext.define("ModernApp.view.main.UsersTabViewModel", {
+    extend: "Ext.app.ViewModel",
+    alias: "viewmodel.usersTabViewModel",
     stores: {
         users: {
-            type: 'userstore'
-        }
+            type: "userstore",
+        },
     },
     data: {
         isNewUser: false, // Flag for new user
-      },
+    },
 });
