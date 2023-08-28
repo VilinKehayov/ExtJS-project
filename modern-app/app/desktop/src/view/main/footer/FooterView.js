@@ -7,7 +7,7 @@ Ext.define('ModernApp.view.main.footer.FooterView', {
         {
             xtype: 'container',
             cls: 'footerviewtext',
-        html: 'Ext JS version: ' + Ext.versions.extjs.version
+            html: `Ext JS version: ${ Ext.versions.extjs.version}`
             //bind: { html: '{name} footer' }
         }
     ]

@@ -40,13 +40,15 @@ Ext.define("ModernApp.view.main.UsersTabController", {
 
         // Create and show the DeleteUserDialog with the record
         const deleteUserDialog = Ext.create(
-            "ModernApp.view.main.DeleteUserDialog",
-            {
-                record: record, // Pass the record to the dialog
-            }
+            "ModernApp.view.main.DeleteUserDialog"
+            // {
+            //     recordId: record.get("id"),
+            // }
 
             //TODO interesting approach - but if I will not use the whole record, maybe I will pass only the recordId :)
         );
+
+        deleteUserDialog.getViewModel().set({ recordId: record.get("id") });
 
         deleteUserDialog.show();
     },

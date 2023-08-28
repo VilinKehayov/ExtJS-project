@@ -1,7 +1,7 @@
 Ext.define('ModernApp.view.main.nav.NavView', {
     extend: 'Ext.Panel',
     xtype: 'navview',
-    controller: "navviewcontroller",
+    controller: 'navviewcontroller',
     cls: 'navview',
     viewModel: {},
     layout: 'fit',
@@ -12,7 +12,7 @@ Ext.define('ModernApp.view.main.nav.NavView', {
             reference: 'menuview', 
             bind: {width: '{menuview_width}'}, 
             listeners: { 
-                selectionchange: "onMenuViewSelectionChange"
+                selectionchange: 'onMenuViewSelectionChange'
             }
         }
     ],

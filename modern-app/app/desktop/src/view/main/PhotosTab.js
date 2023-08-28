@@ -1,21 +1,21 @@
-Ext.define("ModernApp.view.main.PhotosTab", {
-    extend: "Ext.Panel",
-    xtype: "photosTab",
-    title: "Photos",
+Ext.define('ModernApp.view.main.PhotosTab', {
+    extend: 'Ext.Panel',
+    xtype: 'photosTab',
+    title: 'Photos',
 
     items: [
         {
-            xtype: "list",
+            xtype: 'list',
             scrollable: true,
-            height: "720px",
+            height: '720px',
             store: {
-                type: "json",
+                type: 'json',
                 proxy: {
-                    type: "rest",
-                    url: "https://jsonplaceholder.typicode.com/photos",
+                    type: 'rest',
+                    url: 'https://jsonplaceholder.typicode.com/photos',
                     reader: {
-                        type: "json",
-                        rootProperty: "",
+                        type: 'json',
+                        rootProperty: '',
                     },
                 },
                 autoLoad: true,
@@ -23,8 +23,8 @@ Ext.define("ModernApp.view.main.PhotosTab", {
             itemTpl: [
                 '<div style="text-align: center;">',
                 '<img src="{thumbnailUrl}" alt="Photo" style="max-width: 100%;">',
-                "<div>{title}</div>",
-                "</div>",
+                '<div>{title}</div>',
+                '</div>',
             ],
         },
     ],

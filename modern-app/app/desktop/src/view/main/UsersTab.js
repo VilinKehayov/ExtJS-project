@@ -1,87 +1,89 @@
-Ext.require("Ext.layout.Fit");
-Ext.require("Ext.grid.cell.Widget");
+Ext.require('Ext.layout.Fit');
+Ext.require('Ext.grid.cell.Widget');
 
-Ext.define("ModernApp.view.main.UsersTab", {
-    extend: "Ext.Panel",
-    xtype: "usersTab",
-    title: "Users",
+Ext.define('ModernApp.view.main.UsersTab', {
+    extend: 'Ext.Panel',
+    xtype: 'usersTab',
+    title: 'Users',
 
-    layout: { type: "fit" },
+    layout: { type: 'fit' },
 
     requires: [
-        "ModernApp.store.UserStore",
-        "ModernApp.view.main.UsersTabViewModel",
-        "ModernApp.view.main.UsersTabController",
+        'ModernApp.store.UserStore',
+        'ModernApp.view.main.UsersTabViewModel',
+        'ModernApp.view.main.UsersTabController',
     ],
 
-    controller: "usersTabController",
-    viewModel: "usersTabViewModel",
+    controller: 'usersTabController',
+    viewModel: 'usersTabViewModel',
 
-    // tools: [
-    //     {
-    //         type: "plus",
-    //         handler: "onAddUserClick", // Attach the handler for the Add User button
-    //     },
-    // ],
-
+    
     items: [
+        //button component flout button
+        // tools: [
+        //     {
+        //         type: "plus",
+        //         handler: "onAddUserClick", // Attach the handler for the Add User button
+        //     },
+        // ],
         {
-            xtype: "grid",
+            xtype: 'grid',
+            //grid header + button.
             bind: {
-                store: "{users}",
+                store: '{users}',
             },
             columns: [
-                { text: "ID", dataIndex: "id", flex: 1 },
-                { text: "Name", dataIndex: "name", flex: 1 },
-                { text: "Username", dataIndex: "username", flex: 1 },
-                { text: "Email", dataIndex: "email", flex: 1 },
+                { text: 'ID', dataIndex: 'id', flex: 1 },
+                { text: 'Name', dataIndex: 'name', flex: 1 },
+                { text: 'Username', dataIndex: 'username', flex: 1 },
+                { text: 'Email', dataIndex: 'email', flex: 1 },
                 {
-                    text: "Address",
-                    xtype: "templatecolumn",
-                    tpl: "{address.city}",
+                    text: 'Address',
+                    xtype: 'templatecolumn',
+                    tpl: '{address.city}',
                     flex: 1,
                 },
                 {
-                    text: "Actions",
+                    text: 'Actions',
                     flex: 1,
                     cell: {
-                        xtype: "widgetcell",
+                        xtype: 'widgetcell',
                         viewModel: true,
-                        align: "center",
+                        align: 'center',
                         widget: {
-                            xtype: "button",
-                            iconCls: "x-fa fa-home", // Icon for the menu button
+                            xtype: 'button',
+                            iconCls: 'x-fa fa-home', // Icon for the menu button
                             menu: [
                                 {
-                                    text: "Edit",
-                                    iconCls: "x-fa fa-edit",
-                                    handler: "onEditUserClick",
+                                    text: 'Edit',
+                                    iconCls: 'x-fa fa-edit',
+                                    handler: 'onEditUserClick',
                                 },
                                 {
-                                    text: "Delete",
-                                    iconCls: "x-fa fa-trash",
-                                    handler: "onDeleteUserClick",
+                                    text: 'Delete',
+                                    iconCls: 'x-fa fa-trash',
+                                    handler: 'onDeleteUserClick',
                                 },
                             ],
                         },
                     },
                 },
                 {
-                    text: "Add User ",
+                    text: 'Add User ',
                     flex: 1,
                     cell: {
-                        xtype: "widgetcell",
+                        xtype: 'widgetcell',
                         viewModel: true,
-                        align: "center",
+                        align: 'center',
                         widget: {
-                            xtype: "button",
-                            iconCls: "x-fa fa-plus",
-                            width: "100%",
-                            handler: "onAddUserClick",
+                            xtype: 'button',
+                            iconCls: 'x-fa fa-plus',
+                            width: '100%',
+                            handler: 'onAddUserClick',
                             items: [
                                 {
-                                    xtype: "button",
-                                    text: "+",
+                                    xtype: 'button',
+                                    text: '+',
                                 },
                             ],
                         },

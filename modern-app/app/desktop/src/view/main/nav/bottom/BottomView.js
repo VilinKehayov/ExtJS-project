@@ -1,8 +1,8 @@
 Ext.define('ModernApp.view.main.nav.bottom.BottomView', {
-	extend: 'Ext.Toolbar',
-	xtype: 'bottomview',
-	cls: 'bottomview',
-	shadow: false,
+    extend: 'Ext.Toolbar',
+    xtype: 'bottomview',
+    cls: 'bottomview',
+    shadow: false,
 //	items: [
 //		{
 //			xtype: 'button',

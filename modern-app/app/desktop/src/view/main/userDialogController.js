@@ -8,10 +8,13 @@ Ext.define("ModernApp.view.main.UserDialogController", {
 
         if (form.validate()) {
             const editedUser = form.getRecord();
-            const newUser = Ext.create("ModernApp.model.UserModel", editedUser);
-
+            const formData = form.getValues();
+            editedUser.set(formData);
+            // const newUser = Ext.create("ModernApp.model.UserModel", formData); addUser
+            // delete editedUser.id //addUser
+            // delete editedUser.data.id //addUser
             // Save the new user to the server
-            newUser.save({
+            editedUser.save({
                 success: function () {
                     console.log("New user created.");
                     // Trigger the custom event to refresh the store

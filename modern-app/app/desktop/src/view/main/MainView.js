@@ -1,15 +1,15 @@
-Ext.define("ModernApp.view.main.MainView", {
-    extend: "Ext.tab.Panel",
-    xtype: "app-main",
+Ext.define('ModernApp.view.main.MainView', {
+    extend: 'Ext.tab.Panel',
+    xtype: 'app-main',
 
-    requires: ["ModernApp.view.main.UsersTab", "ModernApp.view.main.PhotosTab"],
+    requires: ['ModernApp.view.main.UsersTab', 'ModernApp.view.main.PhotosTab'],
 
     items: [
         {
-            xtype: "usersTab",
+            xtype: 'usersTab',
         },
         {
-            xtype: "photosTab",
+            xtype: 'photosTab',
         },
     ],
 });

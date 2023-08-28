@@ -1,18 +1,18 @@
 Ext.define('ModernApp.view.main.nav.NavViewController', {
-	extend: "Ext.app.ViewController",
-	alias: "controller.navviewcontroller",
+    extend: 'Ext.app.ViewController',
+    alias: 'controller.navviewcontroller',
 
-	initViewModel: function(vm) {},
+    initViewModel: function(vm) {},
 
-	onTopViewNavToggle: function () {
-		var vm = this.getViewModel();
-		vm.set('navCollapsed', !vm.get('navCollapsed'));
-	},
+    onTopViewNavToggle: function () {
+        const vm = this.getViewModel();
+        vm.set('navCollapsed', !vm.get('navCollapsed'));
+    },
 
-	onMenuViewSelectionChange: function(tree, node) {
-		if (!node) {
-				return;
-		}
-		this.fireViewEvent("select", node);
-	}
+    onMenuViewSelectionChange: function(tree, node) {
+        if (!node) {
+            return;
+        }
+        this.fireViewEvent('select', node);
+    }
 });

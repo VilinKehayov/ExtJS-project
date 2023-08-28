@@ -1,8 +1,8 @@
-Ext.define("ModernApp.view.main.UserForm", {
-    extend: "Ext.form.Panel",
-    xtype: "userForm",
+Ext.define('ModernApp.view.main.UserForm', {
+    extend: 'Ext.form.Panel',
+    xtype: 'userForm',
 
-    title: "Fill up the form",
+    title: 'Fill up the form',
     floating: true,
     centered: true,
     modal: true,
@@ -10,25 +10,26 @@ Ext.define("ModernApp.view.main.UserForm", {
 
     // Use 'defaults' to set common properties for child items
     defaults: {
-        xtype: "textfield",
+        xtype: 'textfield',
     },
 
     items: [
         {
-            name: "name",
-            label: "Name",
+            name: 'name',
+            label: 'Name',
         },
         {
-            name: "username",
-            label: "Username",
+            name: 'username',
+            label: 'Username',
         },
         {
-            name: "email",
-            label: "Email",
+            name: 'email',
+            label: 'Email',
         },
         {
-            name: "address",
-            label: "Address",
+            name: 'address',
+            //mapping model
+            label: 'Address',
         },
     ],
 });

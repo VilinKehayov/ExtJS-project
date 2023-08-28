@@ -1,4 +1,4 @@
-Ext.define('ModernApp.view.personnel.PersonnelView',{
+Ext.define('ModernApp.view.personnel.PersonnelView', {
     extend: 'Ext.grid.Grid',
     xtype: 'personnelview',
     cls: 'personnelview',
@@ -23,7 +23,7 @@ Ext.define('ModernApp.view.personnel.PersonnelView',{
             width: 100,
             cell: {userCls: 'bold'}
         },
-        {text: 'Email',dataIndex: 'email',editable: true, width: 230},
+        {text: 'Email', dataIndex: 'email', editable: true, width: 230},
         {
             text: 'Phone',
             dataIndex: 'phone',
