@@ -17,18 +17,24 @@ Ext.define('ModernApp.view.main.UsersTab', {
     controller: 'usersTabController',
     viewModel: 'usersTabViewModel',
 
-    
     items: [
-        //button component flout button
-        // tools: [
-        //     {
-        //         type: "plus",
-        //         handler: "onAddUserClick", // Attach the handler for the Add User button
-        //     },
-        // ],
+        {
+            xtype: 'button',
+            //docked: buttom
+            iconCls: 'x-fa fa-plus',
+            ui: 'action round',
+            padding: '15',
+            handler: 'onAddUserClick',
+            scale: 'large',
+            floating: true,
+            right: 50,
+            bottom: 120,
+            shadow: true,
+            autoShow: true,
+        },
         {
             xtype: 'grid',
-            //grid header + button.
+
             bind: {
                 store: '{users}',
             },
@@ -63,27 +69,6 @@ Ext.define('ModernApp.view.main.UsersTab', {
                                     text: 'Delete',
                                     iconCls: 'x-fa fa-trash',
                                     handler: 'onDeleteUserClick',
-                                },
-                            ],
-                        },
-                    },
-                },
-                {
-                    text: 'Add User ',
-                    flex: 1,
-                    cell: {
-                        xtype: 'widgetcell',
-                        viewModel: true,
-                        align: 'center',
-                        widget: {
-                            xtype: 'button',
-                            iconCls: 'x-fa fa-plus',
-                            width: '100%',
-                            handler: 'onAddUserClick',
-                            items: [
-                                {
-                                    xtype: 'button',
-                                    text: '+',
                                 },
                             ],
                         },
