@@ -1,10 +1,10 @@
-Ext.define("ModernApp.view.main.UserDialogController", {
-    extend: "Ext.app.ViewController",
-    alias: "controller.userdialogcontroller",
+Ext.define('ModernApp.view.main.UserDialogController', {
+    extend: 'Ext.app.ViewController',
+    alias: 'controller.userdialogcontroller',
 
     onSubmitUserClick: function () {
-        const userDialog = Ext.create("ModernApp.view.main.UserDialog");
-        const form = userDialog.down("userForm");
+        const userDialog = Ext.create('ModernApp.view.main.UserDialog');
+        const form = userDialog.down('userForm');
 
         if (form.validate()) {
             const editedUser = form.getRecord();
@@ -16,13 +16,13 @@ Ext.define("ModernApp.view.main.UserDialogController", {
             // Save the new user to the server
             editedUser.save({
                 success: function () {
-                    console.log("New user created.");
+                    console.log('New user created.');
                     // Trigger the custom event to refresh the store
-                    ModernApp.app.fireEvent("refreshusersstore");
+                    ModernApp.app.fireEvent('refreshusersstore');
                     userDialog.destroy(); // Close the dialog after successful save
                 },
                 failure: function () {
-                    console.error("Failed to create the new user.");
+                    console.error('Failed to create the new user.');
                 },
             });
         }
