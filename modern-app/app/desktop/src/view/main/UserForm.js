@@ -28,7 +28,6 @@ Ext.define('ModernApp.view.main.UserForm', {
         },
         {
             name: 'address',
-            //mapping model
             label: 'Address',
         },
     ],

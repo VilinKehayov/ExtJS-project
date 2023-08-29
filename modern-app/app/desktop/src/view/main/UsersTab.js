@@ -45,8 +45,7 @@ Ext.define('ModernApp.view.main.UsersTab', {
                 { text: 'Email', dataIndex: 'email', flex: 1 },
                 {
                     text: 'Address',
-                    xtype: 'templatecolumn',
-                    tpl: '{address.city}',
+                    dataIndex: 'address',
                     flex: 1,
                 },
                 {

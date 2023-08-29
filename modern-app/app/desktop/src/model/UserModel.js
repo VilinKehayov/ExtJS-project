@@ -4,6 +4,10 @@ Ext.define('ModernApp.model.UserModel', {
         { name: 'Name', type: 'string' },
         { name: 'Username', type: 'string' },
         { name: 'Email', type: 'string' },
-        { name: 'Adress', type: 'string' },
+        {
+            name: 'address',
+            type: 'string',
+            mapping: 'address.city',
+        },
     ],
 });
