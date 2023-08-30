@@ -1,13 +1,18 @@
 Ext.define('ModernApp.model.UserModel', {
     extend: 'Ext.data.Model',
     fields: [
-        { name: 'Name', type: 'string' },
-        { name: 'Username', type: 'string' },
-        { name: 'Email', type: 'string' },
+        { name: 'id', type: 'int' },
+        { name: 'name', type: 'string' },
+        { name: 'username', type: 'string' },
+        { name: 'email', type: 'string' },
         {
-            name: 'Address',
+            name: 'address',
             type: 'string',
             mapping: 'address.city',
         },
     ],
+    proxy: {
+        type: 'rest',
+        url: 'http://localhost:3000/users',
+    },
 });
