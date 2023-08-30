@@ -7,10 +7,10 @@ Ext.define('ModernApp.store.UserStore', {
     model: 'ModernApp.model.UserModel',
     proxy: {
         type: 'rest',
-        url: 'https://jsonplaceholder.typicode.com/users', // Update with real server!!
+        url: 'http://localhost:3000/users', //https://jsonplaceholder.typicode.com/users
         reader: {
             type: 'json',
-            rootProperty: '',
+            rootProperty: 'items',
         },
     },
     autoLoad: true,
