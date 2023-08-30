@@ -28,8 +28,18 @@ Ext.define('ModernApp.view.main.UserDialog', {
 
     buttons: [
         {
-            text: 'Submit',
-            handler: 'onSubmitUserClick',
+            text: 'Edit',
+            handler: 'onEditButtonClick',
+            bind: {
+                hidden: '{!isEdit}', // Hide this button when not in edit mode
+            },
+        },
+        {
+            text: 'Create',
+            handler: 'onCreateButtonClick',
+            bind: {
+                hidden: '{isEdit}', // Hide this button when in edit mode
+            },
         },
         {
             text: 'Cancel',

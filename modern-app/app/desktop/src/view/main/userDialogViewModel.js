@@ -4,5 +4,6 @@ Ext.define('ModernApp.view.main.UserDialogViewModel', {
 
     data: {
         dialogTitle: '', // Initialize the title variable
+        isEdit: false, // Initialize the edit mode variable
     },
 });

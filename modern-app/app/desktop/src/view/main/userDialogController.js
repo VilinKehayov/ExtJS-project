@@ -2,50 +2,48 @@ Ext.define('ModernApp.view.main.UserDialogController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.userdialogcontroller',
 
-    onSubmitUserClick: function () {
-        const userDialog = Ext.create('ModernApp.view.main.UserDialog');
+    onEditButtonClick: function () {
+        const userDialog = this.getView();
         const form = userDialog.down('userForm');
         const editedUser = form.getRecord();
         const formData = form.getValues();
 
-        // Use the ternary operator to determine whether to create a new user or edit an existing one
-        const userOperation = editedUser ? 'edit' : 'create';
+        // Call the saveUser function and pass the necessary variables
+        this.saveUser('edit', userDialog, form, editedUser, formData);
+    },
 
+    onCreateButtonClick: function () {
+        const userDialog = this.getView();
+        const form = userDialog.down('userForm');
+        // Get the form data
+        const formData = form.getValues();
+
+        // Call the saveUser function and pass the necessary variables
+        this.saveUser('create', userDialog, form, null, formData);
+    },
+
+    saveUser: function (userOperation, userDialog, form, editedUser, formData) {
         if (form.validate()) {
-            if (userOperation === 'edit') {
-                editedUser.set(formData);
+            const user =
+                userOperation === 'edit'
+                    ? editedUser
+                    : Ext.create('ModernApp.model.UserModel', formData);
+            user.set(formData);
 
-                // Save the new user to the server
-                editedUser.save({
-                    success: function () {
-                        console.log('The user is successfully edited.');
-                        // Trigger the custom event to refresh the store
-                        ModernApp.app.fireEvent('refreshusersstore');
-                        userDialog.destroy(); // Close the dialog after successful save
-                    },
-                    failure: function () {
-                        console.error('Failed to create the new user.');
-                    },
-                });
-            } else if (userOperation === 'create') {
-                const newUser = Ext.create(
-                    'ModernApp.model.UserModel',
-                    formData
-                );
-                // delete editedUser.id; //addUser
-                // delete editedUser.data.id; //addUser
-                // Save the new user to the server
-                newUser.save({
-                    success: function () {
-                        console.log('New user created.');
-                        ModernApp.app.fireEvent('refreshusersstore');
-                        userDialog.destroy();
-                    },
-                    failure: function () {
-                        console.error('Failed to create the new user.');
-                    },
-                });
-            }
+            user.save({
+                success: function () {
+                    console.log(
+                        userOperation === 'edit'
+                            ? 'The user is successfully edited.'
+                            : 'New user created.'
+                    );
+                    ModernApp.app.fireEvent('refreshusersstore');
+                    userDialog.destroy();
+                },
+                failure: function () {
+                    console.error('Failed to create or edit the user.');
+                },
+            });
         }
     },
 });

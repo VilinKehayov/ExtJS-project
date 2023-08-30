@@ -11,6 +11,7 @@ Ext.define('ModernApp.view.main.UsersTabController', {
     onAddUserClick: function () {
         const userDialog = Ext.create('ModernApp.view.main.UserDialog');
         const userDialogViewModel = userDialog.getViewModel();
+        userDialogViewModel.set('isEdit', false);
         userDialogViewModel.set('dialogTitle', 'Create a new user');
         userDialog.show();
     },
@@ -25,6 +26,7 @@ Ext.define('ModernApp.view.main.UsersTabController', {
         const userDialog = Ext.create('ModernApp.view.main.UserDialog');
         const userDialogViewModel = userDialog.getViewModel();
         userDialogViewModel.set('dialogTitle', 'Edit User');
+        userDialogViewModel.set('isEdit', true);
         const form = userDialog.down('userForm');
         form.setRecord(record);
         form.setData(record);
