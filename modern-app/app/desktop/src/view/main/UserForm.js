@@ -27,7 +27,7 @@ Ext.define('ModernApp.view.main.UserForm', {
             label: 'Email',
         },
         {
-            name: 'address',
+            name: 'Address',
             label: 'Address',
         },
     ],
