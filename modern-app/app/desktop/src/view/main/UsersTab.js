@@ -1,5 +1,6 @@
 Ext.require('Ext.layout.Fit');
 Ext.require('Ext.grid.cell.Widget');
+Ext.require('Ext.grid.plugin.PagingToolbar');
 
 Ext.define('ModernApp.view.main.UsersTab', {
     extend: 'Ext.Panel',
@@ -20,7 +21,6 @@ Ext.define('ModernApp.view.main.UsersTab', {
     items: [
         {
             xtype: 'button',
-            //docked: buttom
             iconCls: 'x-fa fa-plus',
             ui: 'action round',
             padding: '15',
@@ -37,6 +37,9 @@ Ext.define('ModernApp.view.main.UsersTab', {
 
             bind: {
                 store: '{users}',
+            },
+            plugins: {
+                pagingtoolbar: true,
             },
             columns: [
                 { text: 'ID', dataIndex: 'id', flex: 1 },
@@ -57,7 +60,7 @@ Ext.define('ModernApp.view.main.UsersTab', {
                         align: 'center',
                         widget: {
                             xtype: 'button',
-                            iconCls: 'x-fa fa-home', // Icon for the menu button
+                            iconCls: 'x-fa fa-home',
                             menu: [
                                 {
                                     text: 'Edit',
@@ -76,8 +79,8 @@ Ext.define('ModernApp.view.main.UsersTab', {
                 // Add other columns as needed
             ],
             selectable: {
-                columns: true, // Can select cells and rows, but not columns
-                extensible: true, // Uses the draggable selection extender
+                columns: true,
+                extensible: true,
             },
         },
     ],
