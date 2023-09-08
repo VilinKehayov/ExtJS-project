@@ -3,7 +3,7 @@ Ext.define('ModernApp.view.main.UserDialogViewModel', {
     alias: 'viewmodel.userdialogviewmodel',
 
     data: {
-        dialogTitle: '', // Initialize the title variable
-        isEdit: false, // Initialize the edit mode variable
+        dialogTitle: '',
+        isEdit: false,
     },
 });

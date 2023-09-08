@@ -4,7 +4,6 @@ Ext.define('ModernApp.view.main.DeleteUserDialogController', {
 
     YesButtonClick: function (btn) {
         const deleteUserDialog = btn.up('deleteUserDialog'),
-            // recordId = deleteUserDialog.config.recordId; // Access the recordId directly from the config
             recordId = deleteUserDialog.getViewModel().get('recordId');
         // Create a new instance of the User model with the recordId
         const user = Ext.create('ModernApp.model.UserModel', {
@@ -22,5 +21,4 @@ Ext.define('ModernApp.view.main.DeleteUserDialogController', {
             },
         });
     },
-
 });

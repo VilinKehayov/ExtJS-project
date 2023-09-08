@@ -7,7 +7,7 @@ Ext.define('ModernApp.view.main.DeleteUserDialog', {
     controller: 'deleteuserdialogcontroller',
     viewModel: {
         data: {
-            recordId: null, // Initialize the recordId to null
+            recordId: null,
         },
     },
 

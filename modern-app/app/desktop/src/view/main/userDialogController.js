@@ -7,7 +7,6 @@ Ext.define('ModernApp.view.main.UserDialogController', {
         const form = userDialog.down('userForm');
         const editedUser = form.getRecord();
         const formData = form.getValues();
-
         // Call the saveUser function and pass the necessary variables
         this.saveUser('edit', userDialog, form, editedUser, formData);
     },
@@ -15,9 +14,7 @@ Ext.define('ModernApp.view.main.UserDialogController', {
     onCreateButtonClick: function () {
         const userDialog = this.getView();
         const form = userDialog.down('userForm');
-        // Get the form data
         const formData = form.getValues();
-
         // Call the saveUser function and pass the necessary variables
         this.saveUser('create', userDialog, form, null, formData);
     },

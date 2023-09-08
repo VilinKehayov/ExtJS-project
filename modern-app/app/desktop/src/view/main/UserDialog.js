@@ -7,11 +7,11 @@ Ext.define('ModernApp.view.main.UserDialog', {
         'ModernApp.view.main.UserDialogViewModel',
     ],
 
-    controller: 'userdialogcontroller', // Use the created controller
+    controller: 'userdialogcontroller',
     viewModel: 'userdialogviewmodel',
 
     bind: {
-        title: '{dialogTitle}', // Bind the title to the ViewModel variable
+        title: '{dialogTitle}',
     },
 
     closable: true,
@@ -31,20 +31,20 @@ Ext.define('ModernApp.view.main.UserDialog', {
             text: 'Edit',
             handler: 'onEditButtonClick',
             bind: {
-                hidden: '{!isEdit}', // Hide this button when not in edit mode
+                hidden: '{!isEdit}',
             },
         },
         {
             text: 'Create',
             handler: 'onCreateButtonClick',
             bind: {
-                hidden: '{isEdit}', // Hide this button when in edit mode
+                hidden: '{isEdit}',
             },
         },
         {
             text: 'Cancel',
             handler: function (btn) {
-                btn.up('userDialog').destroy(); 
+                btn.up('userDialog').destroy();
             },
         },
     ],

@@ -3,10 +3,11 @@ Ext.define('ModernApp.view.main.UsersTabController', {
     alias: 'controller.usersTabController',
 
     requires: [
-        'ModernApp.view.main.UserForm', // Add this line to include UserForm
+        'ModernApp.view.main.UserForm',
         'ModernApp.model.UserModel',
         'ModernApp.store.UserStore',
     ],
+
     listen: {
         global: {
             refreshusersstore: 'refreshUsersStore',
@@ -20,7 +21,7 @@ Ext.define('ModernApp.view.main.UsersTabController', {
 
         if (store) {
             console.log('Refreshing the User store..');
-            store.load(); // Reload the store to reflect changes
+            store.load();
         } else {
             console.error('Record store not found.');
         }
@@ -40,7 +41,6 @@ Ext.define('ModernApp.view.main.UsersTabController', {
         const cell = button.up('widgetcell');
         // Extract the record from the cell
         const record = cell.getRecord();
-
         const userDialog = Ext.create('ModernApp.view.main.UserDialog');
         const userDialogViewModel = userDialog.getViewModel();
         userDialogViewModel.set('dialogTitle', 'Edit User');

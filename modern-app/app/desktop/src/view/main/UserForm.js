@@ -8,7 +8,6 @@ Ext.define('ModernApp.view.main.UserForm', {
     modal: true,
     width: 400,
 
-    // Use 'defaults' to set common properties for child items
     defaults: {
         xtype: 'textfield',
     },

@@ -76,7 +76,6 @@ Ext.define('ModernApp.view.main.UsersTab', {
                         },
                     },
                 },
-                // Add other columns as needed
             ],
             selectable: {
                 columns: true,
