@@ -37,7 +37,7 @@ Ext.define('ModernApp.view.main.UserDialogController', {
                             ? 'The user is successfully edited.'
                             : 'New user created.'
                     );
-                    ModernApp.app.fireEvent('refreshusersstore');
+                    Ext.fireEvent('refreshusersstore');
                     userDialog.destroy();
                 },
                 failure: function () {
