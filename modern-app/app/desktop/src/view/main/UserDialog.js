@@ -15,7 +15,7 @@ Ext.define('ModernApp.view.main.UserDialog', {
     },
 
     closable: true,
-    defaultFocus: 'userForm button[text=Submit]',
+    defaultFocus: null,
     bodyPadding: 250,
     modal: true,
     maxWidth: 550,
@@ -44,7 +44,7 @@ Ext.define('ModernApp.view.main.UserDialog', {
         {
             text: 'Cancel',
             handler: function (btn) {
-                btn.up('userDialog').destroy(); // "userform close?"
+                btn.up('userDialog').destroy(); 
             },
         },
     ],

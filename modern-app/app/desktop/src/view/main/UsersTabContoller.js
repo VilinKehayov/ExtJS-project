@@ -13,19 +13,20 @@ Ext.define('ModernApp.view.main.UsersTabController', {
         const userDialogViewModel = userDialog.getViewModel();
         userDialogViewModel.set('isEdit', false);
         userDialogViewModel.set('dialogTitle', 'Create a new user');
+        userDialog.setDefaultFocus(userDialog.down('[text=Create]'));
         userDialog.show();
     },
 
     onEditUserClick: function (button) {
         // Find the clicked button's cell
         const cell = button.up('widgetcell');
-
         // Extract the record from the cell
         const record = cell.getRecord();
 
         const userDialog = Ext.create('ModernApp.view.main.UserDialog');
         const userDialogViewModel = userDialog.getViewModel();
         userDialogViewModel.set('dialogTitle', 'Edit User');
+        userDialog.setDefaultFocus(userDialog.down('[text=Edit]'));
         userDialogViewModel.set('isEdit', true);
         const form = userDialog.down('userForm');
         form.setRecord(record);
@@ -36,22 +37,13 @@ Ext.define('ModernApp.view.main.UsersTabController', {
     onDeleteUserClick: function (button) {
         // Find the clicked button's cell
         const cell = button.up('widgetcell');
-
         // Extract the record from the cell
         const record = cell.getRecord();
-
         // Create and show the DeleteUserDialog with the record
         const deleteUserDialog = Ext.create(
             'ModernApp.view.main.DeleteUserDialog'
-            // {
-            //     recordId: record.get("id"),
-            // }
-
-            //TODO interesting approach - but if I will not use the whole record, maybe I will pass only the recordId :)
         );
-
         deleteUserDialog.getViewModel().set({ recordId: record.get('id') });
-
         deleteUserDialog.show();
     },
 });
