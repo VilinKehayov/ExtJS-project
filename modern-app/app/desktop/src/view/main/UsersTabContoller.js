@@ -7,6 +7,24 @@ Ext.define('ModernApp.view.main.UsersTabController', {
         'ModernApp.model.UserModel',
         'ModernApp.store.UserStore',
     ],
+    listen: {
+        global: {
+            refreshusersstore: 'refreshUsersStore',
+        },
+    },
+
+    refreshUsersStore: function () {
+        console.log('Firing refreshusersstore event...');
+        const grid = this.getView().down('grid'),
+            store = grid.getStore();
+
+        if (store) {
+            console.log('Refreshing the User store..');
+            store.load(); // Reload the store to reflect changes
+        } else {
+            console.error('Record store not found.');
+        }
+    },
 
     onAddUserClick: function () {
         const userDialog = Ext.create('ModernApp.view.main.UserDialog');
