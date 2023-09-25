@@ -6,10 +6,18 @@ Ext.define('ModernApp.view.main.UsersTab', {
     extend: 'Ext.Panel',
     xtype: 'usersTab',
     title: 'Users',
+    itemId: 'usersTab',
 
-    layout: { type: 'fit' },
+    layout: { type: 'vbox' },
+    scrollable: true,
+    defaults: {
+        margin: '10',
+        flex: 1,
+    },
 
     requires: [
+        'ModernApp.view.main.Search',
+        'ModernApp.view.main.AddOnCard',
         'ModernApp.store.UserStore',
         'ModernApp.view.main.UsersTabViewModel',
         'ModernApp.view.main.UsersTabController',
@@ -28,7 +36,7 @@ Ext.define('ModernApp.view.main.UsersTab', {
             scale: 'large',
             floating: true,
             right: 50,
-            bottom: 120,
+            bottom: 520,
             shadow: true,
             autoShow: true,
         },
@@ -36,7 +44,7 @@ Ext.define('ModernApp.view.main.UsersTab', {
             xtype: 'grid',
 
             bind: {
-                store: '{users}',
+                store: '{filteredUsers}',
             },
             plugins: {
                 pagingtoolbar: true,
@@ -82,5 +90,62 @@ Ext.define('ModernApp.view.main.UsersTab', {
                 extensible: true,
             },
         },
+        {
+            xtype: 'container',
+            layout: 'hbox',
+            items: [
+                {
+                    xtype: 'customDialog',
+                    data: {
+                        title: 'Custom Submit Dialog',
+                        contentHtml:
+                            'This is a custom dialog component with HTML content template.',
+                        buttonText: 'Submit',
+                    },
+                    flex: 1,
+                    listeners: {
+                        customButtonClick: function () {
+                            Ext.Msg.alert(
+                                'Button Clicked',
+                                'Submit button clicked!'
+                            );
+                        },
+                    },
+                },
+                {
+                    xtype: 'customDialog',
+                    data: {
+                        title: 'Custom Cancel Dialog',
+                        contentHtml:
+                            'This is a custom dialog component with HTML content template.', // Set the content
+                        buttonText: 'Cancel',
+                    },
+                    flex: 1,
+                    listeners: {
+                        customButtonClick: function () {
+                            Ext.Msg.alert(
+                                'Button Clicked',
+                                'Cancel button clicked!'
+                            );
+                        },
+                    },
+                },
+            ],
+        },
+        {
+            xtype: 'container',
+            layout: 'hbox',
+            margin: '0',
+            flex: 0,
+            items: [
+                {
+                    xtype: 'search',
+                },
+                {
+                    xtype: 'toogleBottomMenu',
+                },
+            ],
+        },
+        { xtype: 'addOnCard' },
     ],
 });
