@@ -61,7 +61,13 @@ Ext.define('ModernApp.view.main.UsersTabController', {
         const deleteUserDialog = Ext.create(
             'ModernApp.view.main.DeleteUserDialog'
         );
-        deleteUserDialog.getViewModel().set({ recordId: record.get('id') });
+        deleteUserDialog.getViewModel().set({
+            recordId: record.get('id'),
+            deleteDialogTitle: 'Delete User Dialog',
+            deleteDialogHtml: 'Are you sure you want to delete user with ID:',
+            // Add other properties here as needed });
+        });
+
         deleteUserDialog.show();
     },
 });
